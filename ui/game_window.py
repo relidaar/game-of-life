@@ -2,7 +2,7 @@ from typing import Tuple
 
 import pygame
 
-from cell import Cell
+from core.cell import Cell
 from game_state import GameState
 from ui import color
 

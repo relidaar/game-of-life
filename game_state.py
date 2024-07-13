@@ -1,8 +1,8 @@
 import random
 from typing import List
 
-from cell import Cell
-from generation import Generation
+from core.cell import Cell
+from core.generation import Generation
 
 
 class GameState:

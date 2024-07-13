@@ -1,6 +1,6 @@
 from typing import Set
 
-from cell import Cell
+from core.cell import Cell
 
 
 class Generation:
