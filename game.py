@@ -3,13 +3,15 @@ import sys
 import pygame
 
 from game_state import GameState
+from ui.cell import CellSettings, CellStyle
+from ui.common import Colors
 from ui.game_window import GameWindow
 
 
 class Game:
     def __init__(self):
         pygame.init()
-        self.game_window = GameWindow()
+        self.game_window = GameWindow(cell_settings=CellSettings(7, CellStyle.SQUARE, Colors.WHITE))
         self.running = True
         self.game_state = GameState()
 
