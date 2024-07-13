@@ -1,7 +1,6 @@
 import pygame
-from pygame import Color
 
-from game_state import GameState
+from core.game_state import GameState
 from ui.cell import create_drawable_cell, CellSettings, CellStyle
 from ui.common import Colors
 

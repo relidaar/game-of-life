@@ -2,7 +2,7 @@ import sys
 
 import pygame
 
-from game_state import GameState
+from core.game_state import GameState
 from ui.cell import CellSettings, CellStyle
 from ui.common import Colors
 from ui.game_window import GameWindow
