@@ -6,9 +6,9 @@ from core.generation import Generation
 
 
 class GameState:
-    def __init__(self, field_width: int = 10, field_height: int = 10, initial_count: int = 70):
+    def __init__(self, field_width: int = 30, field_height: int = 30):
         self.generation_count = 1
-        self.current_generation = GameState.generate_initial_generation(field_width, field_height, initial_count)
+        self.current_generation = GameState.generate_initial_generation(field_width, field_height)
 
     def cells_exist(self):
         return len(self.current_generation.get_living_cells()) > 0
@@ -19,19 +19,16 @@ class GameState:
         self.current_generation = next_generation
 
     @staticmethod
-    def generate_initial_generation(width: int, height: int, initial_count: int) -> Generation:
+    def generate_initial_generation(width: int, height: int) -> Generation:
         assert 1 <= width <= 100, 'Initial field width must be in range [1, 100]'
         assert 1 <= height <= 100, 'Initial field height must be in range [1, 100]'
-        field_square = width * height
-        assert 1 <= initial_count <= field_square, f'Initial number of cells must be in range [1, {field_square}]'
 
         cols, rows = GameState.field_size_to_coordinates(width), GameState.field_size_to_coordinates(height)
-        possible_cells = set()
+        living_cells = set()
         for row in rows:
             for col in cols:
-                possible_cells.add(Cell(col, row))
-
-        living_cells = random.sample(tuple(possible_cells), initial_count)
+                if random.random() < 0.5:
+                    living_cells.add(Cell(col, row))
         return Generation(living_cells)
 
     @staticmethod
